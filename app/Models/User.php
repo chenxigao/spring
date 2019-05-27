@@ -34,5 +34,12 @@ class User extends Authenticatable
 
     }
 
+    public function isAuthorOf($model)
+    {
+        //权限代码重构
+        return $this->id == $model->user_id;
+        
+    }
+
 
 }
