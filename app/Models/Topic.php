@@ -19,6 +19,14 @@ class Topic extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function replies()
+    {
+        //一个话题可以拥有多个回复
+        return $this->hasMany(Reply::class);
+    }
+
+
+
     public function scopeWithOrder($query, $order)
     {
         //不同的排序使用不同的数据读取逻辑

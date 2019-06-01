@@ -34,6 +34,13 @@ class User extends Authenticatable
 
     }
 
+    public function replies()
+    {
+        //一个用户可以拥有多个回复
+        return $this->hasMany(Reply::class);
+    }
+
+
     public function isAuthorOf($model)
     {
         //权限代码重构
