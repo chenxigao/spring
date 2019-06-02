@@ -46,7 +46,12 @@ class UsersTableSeeder extends Seeder {
         $user->email = 'springlight@126.com';
         $user->password = bcrypt('secret');
         $user->avatar = 'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/ZqM7iaP4CR.png?imageView2/1/w/200/h/200';
+        $user->assignRole('Founder');
         $user->save();
+
+        //赋予第二个用户管理员角色
+        $user = User::find(2);
+        $user->assignRole('Maintainer');
 
     }
 }
