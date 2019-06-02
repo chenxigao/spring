@@ -16,9 +16,10 @@ class TopicObserver
         //
     }
 
-    public function updating(Topic $topic)
+    public function deleted(Topic $topic)
     {
-        //
+        //话题被删除后，与之关联的回复会被删除
+        \DB::table('replies')->where('topic_id', $topic->id)->delete();
     }
 
 
